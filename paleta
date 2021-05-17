@@ -55,8 +55,7 @@ for col do
 done
 
 # Border Background color (various terminals).
-# Skip this sequence if running in VTE.)
-[ "$VTE_VERSION" ] || seq="$seq]708;$1\\"
+seq="$seq]708;$1\\"
 
 # Send escape sequences to all open terminals.
 for tty in /dev/pts/[0-9]*; do
