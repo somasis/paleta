@@ -79,26 +79,28 @@ ________________________________________________________________________________
 
 +------------------------------------------------------------------------------+
 |                                                                              |
-|  1. Set the colorscheme to jellybeans-dark in all open terminals.            |
+|  Set the colorscheme to jellybeans-dark in all open terminals.               |
 |                                                                              |
-|  $ paleta < palettes/jellybeans-dark > ~/.cache/current-palette              |
+|  $ paleta < palettes/jellybeans-dark                                         |
 |                                                                              |
 +------------------------------------------------------------------------------+
 
-Saving paleta's <stdout> to a file is how the current palette is stored. This
-file is used to set the palette in newly opened terminals. Scripts might instead
-store this in a variable or ignore it entirely as they maintain state.
+Saving paleta's <stdout> to a file is how the current palette can be stored.
+this file can then used to set the palette in newly opened terminals.
+Scripts could store this in a variable, or ignore it entirely, maintaining the
+state on their own.
 
 
 setup
 ________________________________________________________________________________
 
-This line must be added to $SHELL's startup file. It tells future terminals to
-load the current palette at launch.
+Assuming you run paleta like the usage section says, this line should be added
+to your shell's startup file. It will tell future terminals to load the current
+palette at launch.
 
 +------------------------------------------------------------------------------+
 |                                                                              |
-|  $ echo 'cat ~/.cache/current-palette' >> ~/.bashrc                          |
+|  $ echo 'cat ~/.cache/paleta/current-palette' >> ~/.bashrc                   |
 |                                                                              |
 +------------------------------------------------------------------------------+
 
@@ -106,9 +108,9 @@ load the current palette at launch.
 input format
 ________________________________________________________________________________
 
-Input is one hex color per line, without #. The first three lines are
-reserved for <foreground>, <background> and <cursor> with the remaining lines
-filling the numerical palette (0-256).
+Input is one hex color per line. A leading # is optional. The first three lines
+are reserved for <foreground>, <background> and <cursor> with the remaining
+lines filling the numerical palette (0-256).
 
 Example: https://github.com/dylanaraps/paleta/blob/master/palettes/gruvbox-dark
 
@@ -130,7 +132,7 @@ Example: https://github.com/dylanaraps/paleta/blob/master/palettes/gruvbox-dark
 |                                     |                                        |
 +-------------------------------------+----------------------------------------+
 
-The maximum palette is (3 + 256). This is configurable at compile-time.
+The maximum palette length is (3 + 256).
 
 
 software written around paleta
