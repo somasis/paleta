@@ -25,8 +25,8 @@ shift $((OPTIND - 1))
 set --
 
 while read -r col; do
-    [ "$#" -gt 16 ] && {
-        printf 'warn: more than 16 colors given, ignoring excess\n' >&2
+    [ "$#" -gt 19 ] && {
+        printf 'warn: more than 19 colors given, ignoring excess\n' >&2
         break
     }
 
@@ -34,13 +34,18 @@ while read -r col; do
     set -- "$@" "${col##}"
 done
 
-[ "$#" -lt 16 ] && {
-    printf 'warn: less than 16 colors given, duplicating input\n' >&2
+[ "$#" -lt 19 ] && {
+    printf 'warn: less than 19 colors given, duplicating input\n' >&2
 
-    while [ "$#" -lt 16 ]; do
+    while [ "$#" -lt 19 ]; do
         set -- "$@" "${2:-FFFFFF}"
     done
 }
+
+# 10: Foreground color, 11: Background color, 12: Cursor Foreground color.
+# Source:http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.7.pod#XTerm_Operating_System_Commands
+seq="$seq]10;$1\\]11;$2\\]12;$3\\"
+shift 3
 
 # Construct sequence list of 0-15 colors.
 for col do
@@ -48,10 +53,6 @@ for col do
 
     : "$((i+=1))"
 done
-
-# 10: Foreground color, 11: Background color, 12: Cursor Foreground color.
-# Source: https://goo.gl/KcoQgP
-seq="$seq]10;${15}\\]11;$1\\]12;${15}\\"
 
 # Border Background color (various terminals).
 # Skip this sequence if running in VTE.)
