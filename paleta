@@ -30,7 +30,8 @@ while read -r col; do
         break
     }
 
-    set -- "$@" "$col"
+    [ "${col}" = "${col#\#}" ] && col="#${col}"
+    set -- "$@" "${col##}"
 done
 
 [ "$#" -lt 16 ] && {
