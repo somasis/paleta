@@ -62,4 +62,4 @@ done
 for tty in /dev/pts/[0-9]*; do
     [ -w "$tty" ] && printf %b "$seq" > "$tty" &
 done
-printf %b "$seq" > "$cache_dir/colors"
+printf %b "$seq"
