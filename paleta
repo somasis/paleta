@@ -4,7 +4,9 @@
 
 usage() {
     cat >&2 <<EOF
-usage: ${0##*/} [-v] < PALETTE
+usage: ${0##*/} < PALETTE
+       ... | ${0##*/}
+       ${0##*/} -v
 EOF
     exit 69
 }
