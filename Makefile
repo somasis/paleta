@@ -4,6 +4,8 @@ datadir ?= $(prefix)/share
 
 palettes ?= $(datadir)/paleta
 
+all:
+
 install: install-paleta install-palettes
 
 install-paleta:
@@ -16,4 +18,4 @@ install-palettes:
 	    install -m 0644 "$${p}" $(DESTDIR)$(palettes)/$${p}; \
 	done
 
-FRC: install install-paleta install-palettes
+FRC: all install install-paleta install-palettes
