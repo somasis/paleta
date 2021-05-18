@@ -9,8 +9,6 @@ EOF
     exit 69
 }
 
-mkdir -p "${cache_dir:=${XDG_CACHE_HOME:=$HOME/.cache}/paleta}"
-
 while getopts :v arg >/dev/null 2>&1; do
     case "${arg}" in
         v)
@@ -30,7 +28,7 @@ while read -r col; do
         break
     }
 
-    [ "${col}" = "${col#\#}" ] && col="#${col}"
+    [ "$col" = "${col#\#}" ] && col="#$col"
     set -- "$@" "${col##}"
 done
 
