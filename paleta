@@ -44,7 +44,7 @@ done
 
 # 10: Foreground color, 11: Background color, 12: Cursor Foreground color.
 # Source:http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.7.pod#XTerm_Operating_System_Commands
-seq="$seq]10;$1\\]11;$2\\]12;$3\\"
+seq="]10;$1\\]11;$2\\]12;$3\\"
 shift 3
 
 # Construct sequence list of 0-15 colors.
