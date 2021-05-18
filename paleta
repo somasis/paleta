@@ -42,7 +42,7 @@ done
     done
 }
 
-# 10: Foreground color, 11: Background color, 12: Cursor Foreground color.
+# 10: Foreground color, 11: Background color, 12: Cursor foreground color.
 # Source:http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.7.pod#XTerm_Operating_System_Commands
 seq="]10;$1\\]11;$2\\]12;$3\\"
 shift 3
@@ -54,11 +54,11 @@ for col; do
     [ "$((i += 1))" -gt 259 ] && break
 done
 
-# Border Background color (various terminals).
+# Border background color (various terminals).
 seq="$seq]708;$1\\"
 
 # Send escape sequences to all open terminals.
 for tty in /dev/pts/[0-9]*; do
-    [ -w "$tty" ] && printf %b "$seq" > "$tty" &
+    [ -w "$tty" ] && printf %b "$seq" >"$tty" &
 done
 printf %b "$seq"
