@@ -87,9 +87,9 @@ ________________________________________________________________________________
 
 Input is one hex color per line. A leading # is optional. The first three lines
 are reserved for <foreground>, <background> and <cursor> with the remaining
-lines filling the numerical palette (0-256).
+lines filling the numerical palette (0-15).
 
-Example: https://github.com/dylanaraps/paleta/blob/master/palettes/gruvbox-dark
+Example: https://github.com/somasis/paleta/blob/main/palettes/gruvbox-dark
 
 +------------------------------------------------------------------------------+
 |  format                             |  example                               |
@@ -104,12 +104,12 @@ Example: https://github.com/dylanaraps/paleta/blob/master/palettes/gruvbox-dark
 |                                     |                                        |
 |  ...                                |  ,,,                                   |
 |                                     |                                        |
-|  <color256>                         |  1ab2a8                                |
+|  <color15>                          |  1ab2a8                                |
 |                                     |                                        |
 |                                     |                                        |
 +-------------------------------------+----------------------------------------+
 
-The maximum palette length is (3 + 256).
+The maximum palette length is 19.
 
 
 software written around paleta
