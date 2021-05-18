@@ -6,23 +6,11 @@ usage() {
     cat >&2 <<EOF
 usage: ${0##*/} < PALETTE
        ... | ${0##*/}
-       ${0##*/} -v
 EOF
     exit 69
 }
 
-while getopts :v arg >/dev/null 2>&1; do
-    case "${arg}" in
-        v)
-            printf 'paleta 1.0.0\n'
-            exit
-            ;;
-        *) usage ;;
-    esac
-done
-shift $((OPTIND - 1))
-
-set --
+[ "$#" -eq 0 ] || usage
 
 while read -r col; do
     [ "$#" -gt 259 ] && {
