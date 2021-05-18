@@ -85,9 +85,10 @@ It will tell future shells to load the current palette at launch.
 input format
 ________________________________________________________________________________
 
-Input is one hex color per line. A leading # is optional. The first three lines
-are reserved for <foreground>, <background> and <cursor> with the remaining
-lines filling the numerical palette (0-15).
+Input is one hexadecimal color per line.
+A leading # is optional, but recommended. The first three lines are reserved for
+<foreground>, <background> and <cursor> with the remaining lines filling the
+numerical palette (0-256); a maximum of 259 definitions in a palette.
 
 Example: https://github.com/somasis/paleta/blob/main/palettes/gruvbox-dark
 
@@ -95,21 +96,19 @@ Example: https://github.com/somasis/paleta/blob/main/palettes/gruvbox-dark
 |  format                             |  example                               |
 +-------------------------------------+----------------------------------------+
 |                                     |                                        |
-|  <foreground>                       |  dedede                                |
-|  <background>                       |  121212                                |
-|  <cursor>                           |  dedede                                |
-|  <color0>                           |  929292                                |
-|  <color1>                           |  e27373                                |
-|  <color2>                           |  94b979                                |
+|  <foreground>                       |  #dedede                               |
+|  <background>                       |  #121212                               |
+|  <cursor>                           |  #dedede                               |
+|  <color0>                           |  #929292                               |
+|  <color1>                           |  #e27373                               |
+|  <color2>                           |  #94b979                               |
 |                                     |                                        |
 |  ...                                |  ,,,                                   |
 |                                     |                                        |
-|  <color15>                          |  1ab2a8                                |
+|  <color256>                         |  #1ab2a8                               |
 |                                     |                                        |
 |                                     |                                        |
 +-------------------------------------+----------------------------------------+
-
-The maximum palette length is 19.
 
 
 software written around paleta
