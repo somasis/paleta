@@ -18,7 +18,7 @@ while read -r col; do
         break
     }
 
-    [ "$col" = "${col#\#}" ] && col="#$col"
+    [ "${col}" = "${col#\#}" ] && col="#${col}"
     set -- "$@" "${col##}"
 done
 
@@ -37,16 +37,16 @@ shift 3
 
 # Construct sequence list of 0-15 colors.
 for col; do
-    seq="$seq]4;${i:=0};${col}\\"
+    seq="${seq}]4;${i:=0};${col}\\"
 
     [ "$((i += 1))" -gt 259 ] && break
 done
 
 # Border background color (various terminals).
-seq="$seq]708;$1\\"
+seq="${seq}]708;$1\\"
 
 # Send escape sequences to all open terminals.
 for tty in /dev/pts/[0-9]*; do
-    [ -w "$tty" ] && printf %b "$seq" >"$tty" &
+    [ -w "${tty}" ] && printf %b "${seq}" >"${tty}" &
 done
-printf %b "$seq"
+printf %b "${seq}"
