@@ -55,6 +55,11 @@ ________________________________________________________________________________
 |                                                                              |
 |  $ paleta < palettes/jellybeans-dark                                         |
 |                                                                              |
+|  Set the colorscheme to jellybeans-dark in all open terminals, and           |
+|  additionally write it to ~/.cache/paleta/current-palette.                   |
+|                                                                              |
+|  $ paleta < palettes/jellybeans-dark > ~/.cache/paleta/current-palette       |
+|                                                                              |
 +------------------------------------------------------------------------------+
 
 Saving paleta's <stdout> to a file is how the current palette can be stored.
@@ -66,9 +71,9 @@ state on their own.
 setup
 ________________________________________________________________________________
 
-Assuming you run paleta like the usage section says, this line should be added
-to your shell's startup file. It will tell future terminals to load the current
-palette at launch.
+Assuming you run paleta like the section command in the usage section, this line
+ should be added to your shell's startup file.
+It will tell future shells to load the current palette at launch.
 
 +------------------------------------------------------------------------------+
 |                                                                              |
